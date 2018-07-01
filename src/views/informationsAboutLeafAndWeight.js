@@ -87,11 +87,10 @@ const button = new Button({top:['prev()',15],left:15,right:15,text:'Suivant',tex
       if(isKnowPlanter === true){
         const remontage = messageInfo('Planteur connu','Voulez vous faire un remontage?','Oui','Non');
             remontage.then((response)=>{
-                console.log(response);
                if(response === "button ok"){
-                 require("./remontageChoice.js")(navigationView,remontageNumber);
                  userInfos.withRemontage = true;
                  localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
+                 require("./remontageChoice.js")(navigationView,remontageNumber);               
                }else{
                  // Affichage du récapitulatif sans remontage
                  userInfos.withRemontage = false;

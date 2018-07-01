@@ -1,5 +1,6 @@
 exports.create = ()=>{
    const {Page,ScrollView,Button,TextView,Picker} = require('tabris');
+   console.log(localStorage.getItem('dataServer'));
    const themeColor = "#00c853";
    let createNavigationView;  
    const executeNavigationView = require("../helpers/navigationViewAnimation.js")(createNavigationView, false);
@@ -14,7 +15,6 @@ exports.create = ()=>{
    const pickerCampaign = new Picker({top:['prev()',10],left:15,right:15,itemCount:campagnesArray.length,itemText:(index) => campagnesArray[index].name,selectionIndex:0}).appendTo(scrollView);
    const button = new Button({layoutData:{ top:["prev()", 30],left:15,right:15},textColor:"#fff",text:"Suivant",background: themeColor,elevation:0})
    .on('select',()=>{
-       require("./selectOurArea.js")(executeNavigationView);
        const campaignInfos = JSON.parse(localStorage.getItem('storeMctUserInfos'));
              campaignInfos.campaignName = campagnesArray[pickerCampaign.selectionIndex].name;
              campaignInfos.campaignPassword = campagnesArray[pickerCampaign.selectionIndex].campaignPassword;
@@ -26,6 +26,6 @@ exports.create = ()=>{
              campaignInfos.campaignTauxRefraction = campagnesArray[pickerCampaign.selectionIndex].tauxRefraction;
              campaignInfos.campaignPriceTriage = campagnesArray[pickerCampaign.selectionIndex].priceTriage;
        localStorage.setItem('storeMctUserInfos',JSON.stringify(campaignInfos));
-       console.log(localStorage.getItem("storeMctUserInfos"));
-   }).appendTo(scrollView);
+       require("./selectOurArea.js")(executeNavigationView);
+   }).appendTo(scrollView);;
 };

@@ -30,6 +30,7 @@ exports.create = () =>{
                  localStorage.setItem('dataServer',JSON.stringify(response));
                  localStorage.setItem('storeMctUserInfos',JSON.stringify({login:login.text}));
                  pDialog("",false,false);
+                 executeNavigationView.dispose();
                  require("./home.js").create();
               }else{
                  messageInfo('Connexion','Impossible de se connecter veuillez réessayer ultérieurement.','Ok compris','Annuler');
