@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.mct" version="0.1.0">
+  <name>Mct</name>
+  <description>
+    Example Tabris.js App
+  </description>
+  <author email="stephnguets@yahoo.fr">
+    ishigo1987
+  </author>
+  <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
+  <plugin name="cordova-plugin-x-toast" spec="2.6.2" />
+  <plugin name="cordova-plugin-pdialog" spec="2.0.1" />
+  <plugin name="cordova-plugin-camera" spec="4.0.3" />
+  <platform name="android">
+    <icon src="res/android/mdpi.png" density="mdpi" />
+    <icon src="res/android/hdpi.png" density="hdpi" />
+    <icon src="res/android/xhdpi.png" density="xhdpi" />
+    <icon src="res/android/xxhdpi.png" density="xxhdpi" />
+    <icon src="res/android/xxxhdpi.png" density="xxxhdpi" />
+  </platform>
+</widget>
