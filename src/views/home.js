@@ -28,4 +28,5 @@ exports.create = ()=>{
        localStorage.setItem('storeMctUserInfos',JSON.stringify(campaignInfos));
        require("./selectOurArea.js")(executeNavigationView);
    }).appendTo(scrollView);;
+       require('../modules/createDataBase.js')();
 };
