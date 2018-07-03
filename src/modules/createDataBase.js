@@ -1,6 +1,7 @@
 module.exports = ()=>{
  return new Promise((resolve,reject)=>{
    function success(){}
+   function success(){console.log("table created with success youpii");}
    function failure(error){console.log(error);}
    let db = null;
        db = window.sqlitePlugin.openDatabase({name: 'MctDataBase', location: 'default'},success,failure);
