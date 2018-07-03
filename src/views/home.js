@@ -27,6 +27,7 @@ exports.create = ()=>{
              campaignInfos.campaignPriceTriage = campagnesArray[pickerCampaign.selectionIndex].priceTriage;
        localStorage.setItem('storeMctUserInfos',JSON.stringify(campaignInfos));
        require("./selectOurArea.js")(executeNavigationView);
-   }).appendTo(scrollView);;
-       require('../modules/createDataBase.js')();
+   }).appendTo(scrollView);
+    const t = require('../modules/createDataBase.js')();
+    console.log(t);
 };
