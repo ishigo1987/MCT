@@ -50,7 +50,7 @@ exports.create = () =>{
                                         if(responsePopulate === "All insertions are a success"){
                                           localStorage.setItem('storeMctUserInfos',JSON.stringify({login:login.text}));
 //                                           pDialog("",false,false);
-//                                           executeNavigationView.dispose();
+                                           executeNavigationView.dispose();
 //                                           require("./home.js").create();
                                         }else{
                                            console.log(responsePopulate);  
