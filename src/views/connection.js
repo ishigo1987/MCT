@@ -35,7 +35,6 @@ exports.create = () =>{
                               const planterInfos = response.planteurs;
                               const campaignInfos = response.campagnes;
                               const areaInfos = response.zones;
-                              console.log(planterInfos);
                               const infosPlantersTable = planterInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,telephone:infos.phone,section:infos.section,commission:infos.commission,matricule:infos.mat,longSechoir:infos.long_sechoir,image:`http://www.adscameroon.com//web/uploads/media/default/0001/01/${infos.image.provider_reference}`,groupeplanteur:infos.groupeplanteur,know:infos.know};
                               });
