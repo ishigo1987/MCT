@@ -44,6 +44,7 @@ exports.create = () =>{
                               const infosAreaTable = areaInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name}; 
                               });
+                               console.log(infosAreaTable);
                               const populateDataBase = require('../modules/firstPopulateDataBase.js')(infosPlantersTable,infosCampaignTable,infosAreaTable);
                                     populateDataBase.then((responsePopulate)=>{
                                         if(responsePopulate === "All insertions are a success"){
