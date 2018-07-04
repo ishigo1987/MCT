@@ -1,5 +1,6 @@
 module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
   return new Promise((resolve,reject)=>{
+     console.log('test');
      function success(){console.log("database opened");}
      function failure(error){console.log(error);}
      let db = null;
