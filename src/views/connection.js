@@ -32,12 +32,14 @@ exports.create = () =>{
                        createDataBase.then((responseCreate)=>{
                            if(responseCreate === "Création de la base de donnée ok"){
                               // On peut entrer les données dans la base de données 
+                               console.log('debut du parsing json');
                               const planterInfos = response.planteurs;
                               const campaignInfos = response.campagnes;
                               const areaInfos = response.zones;
                               const infosPlantersTable = planterInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,telephone:infos.phone,section:infos.section,commission:infos.commission,matricule:infos.mat,longSechoir:infos.long_sechoir,image:`http://www.adscameroon.com//web/uploads/media/default/0001/01/${infos.image.provider_reference}`,groupeplanteur:infos.groupeplanteur,know:infos.know};
                               });
+                               console.log(infosPlantersTable);
                               const infosCampaignTable = campaignInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,passwordPlan:infos.pass_plan,prixFeuille1:infos.p_feuil1,prixFeuille2:infos.p_feuil2,prixFeuille3:infos.p_feuil3,prixFeuilleX:infos.p_feuil_x,prixCoupe:infos.p_coupe,tauxRefraction:infos.refrac,prixTriage:infos.p_triage};
                               });
