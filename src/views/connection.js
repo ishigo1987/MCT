@@ -23,7 +23,7 @@ exports.create = () =>{
      if(login.text === '' || password.text === ''){
        messageInfo('Connexion','Le couple login mot de passe que avez entré est incorrect.','Ok compris','Annuler');
      }else{
-       pDialog("Vérification de vos données de connexion",false,true);
+//       pDialog("Vérification de vos données de connexion et synchronisation de la base de donnée",false,true);
        const ajax = require('../helpers/ajax.js')(null,`http://www.adscameroon.com/web/app_dev.php/android/login/${login.text}/${password.text}`);
              ajax.then((response)=>{
               if(response.statut === 1){
@@ -35,6 +35,7 @@ exports.create = () =>{
                               const planterInfos = response.planteurs;
                               const campaignInfos = response.campagnes;
                               const areaInfos = response.zones;
+                              console.log(planterInfos);
                               const infosPlantersTable = planterInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,telephone:infos.phone,section:infos.section,commission:infos.commission,matricule:infos.mat,longSechoir:infos.long_sechoir,image:`http://www.adscameroon.com//web/uploads/media/default/0001/01/${infos.image.provider_reference}`,groupeplanteur:infos.groupeplanteur,know:infos.know};
                               });
@@ -48,7 +49,7 @@ exports.create = () =>{
                                     populateDataBase.then((responsePopulate)=>{
                                         if(responsePopulate === "All insertions are a success"){
                                           localStorage.setItem('storeMctUserInfos',JSON.stringify({login:login.text}));
-                                           pDialog("",false,false);
+//                                           pDialog("",false,false);
 //                                           executeNavigationView.dispose();
 //                                           require("./home.js").create();
                                         }else{
