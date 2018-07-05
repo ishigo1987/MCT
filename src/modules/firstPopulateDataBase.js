@@ -1,6 +1,5 @@
 module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
   return new Promise((resolve,reject)=>{
-     console.log('test');
      function success(){console.log("database opened");}
      function failure(error){console.log(error);}
      let db = null;
@@ -8,7 +7,6 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
          const j = tablePlantersData.length;
          const k = tableCampaignData.length;
          const l = tableAreasData.length;
-         console.log(`${j} ${k} ${l}`);
          for(let i=0; i<j; i++){
            var planterId = tablePlantersData[i].id;
            var planterName = tablePlantersData[i].name;
@@ -29,10 +27,11 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
 //              console.log('SELECT error: ' + error.message);
 //           }); 
          }
+      var campaignName;
         console.log(planterName);
          for(let i=0; i<k; i++){
            var campaignId = tableCampaignData[i].id;
-           var campaignName = tableCampaignData[i].name;
+           campaignName = tableCampaignData[i].name;
            var campaignPasswordPlan = tableCampaignData[i].passwordPlan;
            var campaignPriceLeaf1 = tableCampaignData[i].prixFeuille1;
            var campaignPriceLeaf2 = tableCampaignData[i].prixFeuille2;
