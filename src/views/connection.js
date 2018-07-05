@@ -32,7 +32,6 @@ exports.create = () =>{
                        createDataBase.then((responseCreate)=>{
                            if(responseCreate === "Création de la base de donnée ok"){
                               // On peut entrer les données dans la base de données 
-                               console.log('debut du parsing json');
                               const planterInfos = response.planteurs;
                               const campaignInfos = response.campagnes;
                               const areaInfos = response.zones;
