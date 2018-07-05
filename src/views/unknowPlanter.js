@@ -41,7 +41,7 @@ module.exports = (navigationView)=>{
                             userInfos.planterNumber = planterNumber.text;
                             userInfos.pictureSrc = pictureSrc;
                       localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
-                      require("./home.js")(navigationView,false);
+                      require("./home.js").create();
                     }
                 });
           // On lance la sauvegarde des infos et switch sur une autre vue

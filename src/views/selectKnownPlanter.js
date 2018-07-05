@@ -13,12 +13,12 @@ module.exports = (navigationView)=>{
                    let collectionViewArrayItems = [];
                    let remontage;
                    for(let i=0; i<j; i++){
-                       console.log(requestResult.item(i).groupeplanteur);
-                       console.log(typeof(requestResult.item(i).groupeplanteur));
-//                       remontage = JSON.parse(requestResult.item(i).groupeplanteur);
-//                       remontage = remontage.remont;
-//                       console.log(remontage)
-//                       collectionViewArrayItems.push({planterId:requestResult.item(i).id,planterName:requestResult.item(i).name,planterTelephone:requestResult.item(i).telephone,planterSection:requestResult.item(i).section,planterCommission:requestResult.item(i).commission,planterMatricule:requestResult.item(i).matricule,planterLongSechoir:requestResult.item(i).long_sechoir,planterImage:requestResult.item(i).image,planterRemontage:remontage,planterKnow:requestResult.item(i).know});  
+//                       console.log(requestResult.item(i).groupeplanteur);
+//                       console.log(typeof(requestResult.item(i).groupeplanteur));
+                       remontage = requestResult.item(i).groupeplanteur;
+                       remontage = remontage.remont;
+                       console.log(remontage);
+                       collectionViewArrayItems.push({planterId:requestResult.item(i).id,planterName:requestResult.item(i).name,planterTelephone:requestResult.item(i).telephone,planterSection:requestResult.item(i).section,planterCommission:requestResult.item(i).commission,planterMatricule:requestResult.item(i).matricule,planterLongSechoir:requestResult.item(i).long_sechoir,planterImage:requestResult.item(i).image,planterRemontage:remontage,planterKnow:requestResult.item(i).know});  
                    }
 //                  console.log(collectionViewArrayItems);
                   const planterCollectionView = new CollectionView({right:0,bottom:0,top:0,left:0,itemCount:collectionViewArrayItems.length,cellHeight:80,
