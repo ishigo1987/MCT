@@ -29,8 +29,8 @@ module.exports = (navigationView)=>{
     
                   const button = new Button({layoutData:{ top:["prev()", 30],left:15,right:15},textColor:"#fff",text:"Suivant",background: themeColor,elevation:0})
                   .on('select',()=>{
-                  if(pickerSellArea.selectionIndex === 0){
-                    messageInfo('MCT','Veuillez choisir votre zone','Ok compris','Annuler'); 
+                  if(pickerSellArea.selectionIndex === 0 || pickerTypeOfPlanter.selectionIndex === 0){
+                    messageInfo('MCT','Veuillez choisir votre zone et votre type de planteur','Ok compris','Annuler'); 
                   }else{
                     if(pickerTypeOfPlanter.selectionIndex === 2){
                       // Vue planteur non connu 
