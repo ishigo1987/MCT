@@ -7,7 +7,8 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
          const j = tablePlantersData.length;
          const k = tableCampaignData.length;
          const l = tableAreasData.length;
-         for(let i=0; i<j; i++){
+         db.transaction((tx)=>{
+             for(let i=0; i<j; i++){
 //           var planterId = tablePlantersData[i].id;
 //           var planterName = tablePlantersData[i].name;
 //           var planterTelephone = tablePlantersData[i].telephone;
@@ -19,15 +20,15 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
 //           var planterGroupePlanteur = tablePlantersData[i].groupeplanteur;
 //           var planterKnow = tablePlantersData[i].know;
 //           var planterProvenance = "Serveur";
-           db.executeSql('INSERT INTO planteurs VALUES (?,?,?,?,?,?,?,?,?,?,?)', [tablePlantersData[i].id,tablePlantersData[i].name,tablePlantersData[i].telephone,tablePlantersData[i].section,tablePlantersData[i].commission,tablePlantersData[i].matricule,tablePlantersData[i].longSechoir,tablePlantersData[i].image,tablePlantersData[i].groupeplanteur,tablePlantersData[i].know,"Serveur"],(resultSet)=>{
+             db.executeSql('INSERT INTO planteurs VALUES (?,?,?,?,?,?,?,?,?,?,?)', [tablePlantersData[i].id,tablePlantersData[i].name,tablePlantersData[i].telephone,tablePlantersData[i].section,tablePlantersData[i].commission,tablePlantersData[i].matricule,tablePlantersData[i].longSechoir,tablePlantersData[i].image,tablePlantersData[i].groupeplanteur,tablePlantersData[i].know,"Serveur"],(resultSet)=>{
 //             console.log(resultSet);
 //             console.log('resultSet.insertId: ' + resultSet.insertId);
 //             console.log('resultSet.rowsAffected: ' + resultSet.rowsAffected);
-           },(error)=>{
+             },(error)=>{
               console.log('SELECT error: ' + error.message);
-           }); 
-         }
-         for(let i=0; i<k; i++){
+             }); 
+            }
+            for(let i=0; i<k; i++){
 //           var campaignId = tableCampaignData[i].id;
 //           var campaignName = tableCampaignData[i].name;
 //           var campaignPasswordPlan = tableCampaignData[i].passwordPlan;
@@ -44,9 +45,8 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
            },(error)=>{
               console.log('SELECT error: ' + error.message);
            }); 
-         }
-
-         for(let i=0; i<l; i++){
+          }
+          for(let i=0; i<l; i++){
 //           var areaId = tableAreasData[i].id;
 //           var areaName = tableAreasData[i].name
            db.executeSql('INSERT INTO zones VALUES (?,?)', [tableAreasData[i].id,tableAreasData[i].name],(resultSet)=>{
@@ -55,9 +55,15 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
            },(error)=>{
               console.log('SELECT error: ' + error.message);
            }); 
-         }
+          }
+          resolve("All insertions are a success");
+         });
+         
+         
+
+        
 //      console.log(areaName);
-        resolve("All insertions are a success");
+        
 //       db.sqlBatch([
 //         [ 'INSERT INTO planteurs VALUES (?,?,?,?,?,?,?,?,?,?,?)', [planterId, planterName, planterTelephone, planterSection, planterCommission, planterMatricule, planterLongSechoir, planterImage, planterGroupePlanteur, planterKnow, planterProvenance] ],
 //         [ 'INSERT INTO campagnes VALUES (?,?,?,?,?,?,?,?,?,?)', [campaignId, campaignName, campaignPasswordPlan, campaignPriceLeaf1, campaignPriceLeaf2, campaignPriceLeaf3, campaignPriceLeafX, campaignPriceCutLeaf, campaignRefractionLevel, campaignPriceTriage] ],
