@@ -39,7 +39,6 @@ exports.create = () =>{
                               const infosPlantersTable = planterInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,telephone:infos.phone,section:infos.section,commission:infos.commission,matricule:infos.mat,longSechoir:infos.long_sechoir,image:`src/img/no-pic.png`,groupeplanteur:infos.groupeplanteur,know:infos.know};
                               });
-                               console.log(infosPlantersTable[0]);
                               const infosCampaignTable = campaignInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,passwordPlan:infos.pass_plan,prixFeuille1:infos.p_feuil1,prixFeuille2:infos.p_feuil2,prixFeuille3:infos.p_feuil3,prixFeuilleX:infos.p_feuil_x,prixCoupe:infos.p_coupe,tauxRefraction:infos.refrac,prixTriage:infos.p_triage};
                               });

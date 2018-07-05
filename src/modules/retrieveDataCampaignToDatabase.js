@@ -7,7 +7,7 @@ module.exports = ()=>{
          db.transaction((tx)=>{
            tx.executeSql('SELECT * FROM planteurs', [],(tx, rs)=>{
              console.log(rs.rows);
-             console.log(rs.rows.item);
+             console.log(JSON.stringify(rs.rows.item));
            },(tx, error)=>{
               console.log('SELECT error: ' + error.message);
            });
