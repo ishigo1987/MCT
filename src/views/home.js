@@ -1,6 +1,6 @@
 exports.create = ()=>{
    const {Page,ScrollView,Button,TextView,Picker} = require('tabris');
-   console.log(localStorage.getItem('dataServer'));
+//   console.log(localStorage.getItem('dataServer'));
    const themeColor = "#00c853";
    let createNavigationView;  
    const executeNavigationView = require("../helpers/navigationViewAnimation.js")(createNavigationView, false);

@@ -27,11 +27,10 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
 //              console.log('SELECT error: ' + error.message);
 //           }); 
          }
-      var campaignName;
-        console.log(planterName);
+//        console.log(planterName);
          for(let i=0; i<k; i++){
            var campaignId = tableCampaignData[i].id;
-           campaignName = tableCampaignData[i].name;
+           var campaignName = tableCampaignData[i].name;
            var campaignPasswordPlan = tableCampaignData[i].passwordPlan;
            var campaignPriceLeaf1 = tableCampaignData[i].prixFeuille1;
            var campaignPriceLeaf2 = tableCampaignData[i].prixFeuille2;
@@ -47,7 +46,7 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
 //              console.log('SELECT error: ' + error.message);
 //           }); 
          }
-      console.log(campaignName);
+//      console.log(campaignName);
          for(let i=0; i<l; i++){
            var areaId = tableAreasData[i].id;
            var areaName = tableAreasData[i].name
@@ -58,7 +57,7 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
 //              console.log('SELECT error: ' + error.message);
 //           }); 
          }
-      console.log(areaName);
+//      console.log(areaName);
        db.sqlBatch([
          [ 'INSERT INTO planteurs VALUES (?,?,?,?,?,?,?,?,?,?,?)', [planterId, planterName, planterTelephone, planterSection, planterCommission, planterMatricule, planterLongSechoir, planterImage, planterGroupePlanteur, planterKnow, planterProvenance] ],
          [ 'INSERT INTO campagnes VALUES (?,?,?,?,?,?,?,?,?,?)', [campaignId, campaignName, campaignPasswordPlan, campaignPriceLeaf1, campaignPriceLeaf2, campaignPriceLeaf3, campaignPriceLeafX, campaignPriceCutLeaf, campaignRefractionLevel, campaignPriceTriage] ],
