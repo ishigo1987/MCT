@@ -10,19 +10,8 @@ exports.create = ()=>{
              if(response.Message === "Data retrieves with success"){
                    const requestResult = response.RequestResult;
                    const j = requestResult.length;
-                 console.log(requestResult);
                    let campagnesArray = [];
                    for(let i=0; i<j; i++){
-                       console.log(requestResult.item(i).id);
-                       console.log(requestResult.item(i).name);
-                       console.log(requestResult.item(i).password_plan);
-                       console.log(requestResult.item(i).prix_feuille1);
-                       console.log(requestResult.item(i).prix_feuille2);
-                       console.log(requestResult.item(i).prix_feuille3);
-                       console.log(requestResult.item(i).prix_feuille_x);
-                       console.log(requestResult.item(i).prix_coupe);
-                       console.log(requestResult.item(i).taux_refraction);
-                       console.log(requestResult.item(i).prix_triage);
                     campagnesArray.push({campaignId:requestResult.item(i).id,campaignName:requestResult.item(i).name,campaignPassword:requestResult.item(i).password_plan,campaignPriceFirstLeaf:requestResult.item(i).prix_feuille1,campaignPriceSecondLeaf:requestResult.item(i).prix_feuille2,campaignPriceThirdLeaf:requestResult.item(i).prix_feuille3,campaignPriceXLeaf:requestResult.item(i).prix_feuille_x,campaignPriceCutLeaf:requestResult.item(i).prix_coupe,campaignTauxRefraction:requestResult.item(i).taux_refraction,campaignPriceTriage:requestResult.item(i).prix_triage});   
                    }
                    console.log(campagnesArray);
@@ -33,7 +22,7 @@ exports.create = ()=>{
 //                   const campagnesArray = dataCampaign.map((campaignInfos)=>{
 //                  return {name:campaignInfos.name,campaignPassword:campaignInfos.pass_plan,priceFirstLeaf:campaignInfos.p_feuil1,priceSecondLeaf:campaignInfos.p_feuil2,priceThirdLeaf:campaignInfos.p_feuil3,priceXleaf:campaignInfos.p_feuil_x,priceCutLeaf:campaignInfos.p_coupe,tauxRefraction:campaignInfos.refrac,priceTriage:campaignInfos.p_triage};
 //                 });
-                 const pickerCampaign = new Picker({top:['prev()',10],left:15,right:15,itemCount:campagnesArray.length,itemText:(index) => campagnesArray[index].name,selectionIndex:0}).appendTo(scrollView);
+                 const pickerCampaign = new Picker({top:['prev()',10],left:15,right:15,itemCount:campagnesArray.length,itemText:(index) => campagnesArray[index].campaignName,selectionIndex:0}).appendTo(scrollView);
                  const button = new Button({layoutData:{ top:["prev()", 30],left:15,right:15},textColor:"#fff",text:"Suivant",background: themeColor,elevation:0})
                  .on('select',()=>{
                     const campaignInfos = JSON.parse(localStorage.getItem('storeMctUserInfos'));
@@ -48,7 +37,7 @@ exports.create = ()=>{
                     campaignInfos.campaignTauxRefraction = campagnesArray[pickerCampaign.selectionIndex].campaignTauxRefraction;
                     campaignInfos.campaignPriceTriage = campagnesArray[pickerCampaign.selectionIndex].campaignPriceTriage;
                     localStorage.setItem('storeMctUserInfos',JSON.stringify(campaignInfos));
-                      console.log(localStorage.getItem(storeMctUserInfos));
+                      console.log(localStorage.getItem('storeMctUserInfos'));
                     require("./selectOurArea.js")(executeNavigationView);
                 }).appendTo(scrollView);
             }else{
