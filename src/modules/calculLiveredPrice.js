@@ -1,4 +1,12 @@
 module.exports = ()=>{
     const campaignInfos = JSON.parse(localStorage.getItem('storeMctUserInfos'));
-    const temp = Number(campaignInfos.weightFirstLeaf * campaignInfos.campaignPriceFirstLeaf) + Number(campaignInfos.weightSecondLeaf * campaignInfos.campaignPriceSecondLeaf) + Number(campaignInfos.weightThirdLeaf * campaignInfos.campaignPriceThirdLeaf) + Number(campaignInfos.weightXLeaf * campaignInfos.campaignPriceXLeaf); 
+    const capedWeight = require('./calculCapedWeight.js')();
+    const tauxRefraction = campaignInfos.campaignTauxRefraction;
+    const firstCalcul = Number(campaignInfos.weightFirstLeaf) + Number((remontageLevel / 100) * campaignInfos.weightSecondLeaf);
+    const secondCalcul = Number(campaignInfos.weightSecondLeaf) + Number((remontageLevel / 100) * campaignInfos.weightThirdLeaf);
+    const thirdCalcul = Number(campaignInfos.weightThirdLeaf) + Number((remontageLevel / 100) * campaignInfos.weightXLeaf);
+    const fourthCalcul = Number(campaignInfos.weightXLeaf) - Number((remontageLevel / 100) * campaignInfos.weightFirstLeaf) - Number((remontageLevel / 100) * campaignInfos.weightSecondLeaf) - Number((remontageLevel / 100) * campaignInfos.weightThirdLeaf);
+    const temp = firstCalcul + secondCalcul + thirdCalcul + fourthCalcul + Number(capedWeight);
+      
+    return Number(temp) - (tauxRefraction * temp / 100);
 }
