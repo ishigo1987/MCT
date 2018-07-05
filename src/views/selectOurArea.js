@@ -22,7 +22,7 @@ module.exports = (navigationView)=>{
                    for(let i=0; i<j; i++){
                      zonesArray.push({areaId:requestResult.item(i).id,areaName:requestResult.item(i).name});  
                    }
-                   zonesArray.unshift({name:"Sélectionnez votre zone"});
+                   zonesArray.unshift({areaName:"Sélectionnez votre zone"});
                    console.log(zonesArray);
                   const typeOfPlanter = [{type:'Sélectionnez votre type de planteur'},{type:'Planteur connu'},{type:'Planteur inconnu'}];
                   const pickerSellArea = new Picker({top:['prev()',30],left:15,right:15,itemCount:zonesArray.length,itemText:(index) => zonesArray[index].areaName,selectionIndex:0}).appendTo(scrollView);
