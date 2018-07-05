@@ -9,7 +9,7 @@ module.exports = (tablePlantersData,tableCampaignData,tableAreasData)=>{
          const l = tableAreasData.length;
          db.transaction((tx)=>{
              for(let i=0; i<j; i++){
-               tx.executeSql('INSERT INTO planteurs VALUES (?,?,?,?,?,?,?,?,?,?,?)', [tablePlantersData[i].id,tablePlantersData[i].name,tablePlantersData[i].telephone,tablePlantersData[i].section,tablePlantersData[i].commission,tablePlantersData[i].matricule,tablePlantersData[i].longSechoir,tablePlantersData[i].image,tablePlantersData[i].groupeplanteur,tablePlantersData[i].know,"Serveur"],(resultSet)=>{
+               tx.executeSql('INSERT INTO planteurs VALUES (?,?,?,?,?,?,?,?,?,?,?)', [tablePlantersData[i].id,tablePlantersData[i].name,tablePlantersData[i].telephone,tablePlantersData[i].section,tablePlantersData[i].commission,tablePlantersData[i].matricule,tablePlantersData[i].longSechoir,tablePlantersData[i].image,tablePlantersData[i].groupeplanteurRemontage,tablePlantersData[i].know,"Serveur"],(resultSet)=>{
 
                },(error)=>{
                  console.log('SELECT error: ' + error.message);
