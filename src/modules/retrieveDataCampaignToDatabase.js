@@ -6,6 +6,7 @@ module.exports = ()=>{
          db = window.sqlitePlugin.openDatabase({name: 'MctDataBase', location: 'default'},success,failure);
          db.transaction((tx)=>{
            tx.executeSql('SELECT * FROM campagnes', [],(tx, rs)=>{
+               console.log(String(rs));
              resolve({Message:'Data retrieves with success',requestResult:rs.rows.item(),rowLength:rs.rows.length});
            },(tx, error)=>{
               console.log('SELECT error: ' + error.message);
