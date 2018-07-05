@@ -16,7 +16,7 @@ exports.create = ()=>{
                        console.log(requestResult.item(i).id);
                        console.log(requestResult.item(i).name);
                        console.log(requestResult.item(i).password_plan);
-                       console.log(RequestResult.item(i).prix_feuille1);
+                       console.log(requestResult.item(i).prix_feuille1);
                        console.log(requestResult.item(i).prix_feuille2);
                        console.log(requestResult.item(i).prix_feuille3);
                        console.log(requestResult.item(i).prix_feuille_x);
