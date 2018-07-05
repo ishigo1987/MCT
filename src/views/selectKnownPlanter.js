@@ -15,12 +15,11 @@ module.exports = (navigationView)=>{
                    for(let i=0; i<j; i++){
 //                       console.log(requestResult.item(i).groupeplanteur);
 //                       console.log(typeof(requestResult.item(i).groupeplanteur));
-//                       remontage = JSON.parse(requestResult.item(i).groupeplanteur);
-//                       remontage = remontage.remont;
-//                       console.log(remontage);
-                       collectionViewArrayItems.push({planterId:requestResult.item(i).id,planterName:requestResult.item(i).name,planterTelephone:requestResult.item(i).telephone,planterSection:requestResult.item(i).section,planterCommission:requestResult.item(i).commission,planterMatricule:requestResult.item(i).matricule,planterLongSechoir:requestResult.item(i).long_sechoir,planterImage:requestResult.item(i).image,planterRemontage:requestResult.item(i).groupeplanteur,planterKnow:requestResult.item(i).know});  
+                       remontage = requestResult.item(i).groupeplanteur.remont;
+                       console.log(remontage);
+                       collectionViewArrayItems.push({planterId:requestResult.item(i).id,planterName:requestResult.item(i).name,planterTelephone:requestResult.item(i).telephone,planterSection:requestResult.item(i).section,planterCommission:requestResult.item(i).commission,planterMatricule:requestResult.item(i).matricule,planterLongSechoir:requestResult.item(i).long_sechoir,planterImage:requestResult.item(i).image,planterRemontage:remontage,planterKnow:requestResult.item(i).know});  
                    }
-                  console.log(collectionViewArrayItems);
+//                  console.log(collectionViewArrayItems);
                   const planterCollectionView = new CollectionView({right:0,bottom:0,top:0,left:0,itemCount:collectionViewArrayItems.length,cellHeight:80,
                     createCell: () => {
                       const cell = new Composite({right:0,bottom:0,top:0,background: "#fff",highlightOnTouch:true});
@@ -42,7 +41,7 @@ module.exports = (navigationView)=>{
                    userInfos.selectedKnownPlanterId = itemIndex.planterId;
                    userInfos.selectedKnownPlanterLongeurSechoir = itemIndex.planterLongSechoir;
                    localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
-                      console.log({t:itemIndex.planterRemontage});
+                      console.log(typeof({t:itemIndex.planterRemontage}));
                     require('./displayFullInformationsAboutKnowPlanter.js')(navigationView,{matricule:itemIndex.planterMatricule,name:itemIndex.planterName,zone:userInfos.zoneName,longueurSechoir:itemIndex.planterLongSechoir,picturePlanter:itemIndex.planterImage,section:itemIndex.planterSection,comission:itemIndex.planterCommission,remontage:itemIndex.planterRemontage});
 //                   require("./informationsAboutLeafAndWeight.js")(navigationView,true,itemIndex.remontage);
         
