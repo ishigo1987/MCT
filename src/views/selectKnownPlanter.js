@@ -41,6 +41,7 @@ module.exports = (navigationView)=>{
                     userInfos.selectedKnownPlanterId = itemIndex.planterId;
                     userInfos.selectedKnownPlanterLongeurSechoir = itemIndex.planterLongSechoir;
                     localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
+                      console.log(localStorage.getItem('storeMctUserInfos'));
                     require('./displayFullInformationsAboutKnowPlanter.js')(navigationView,{matricule:itemIndex.planterMatricule,name:itemIndex.planterName,zone:userInfos.zoneName,longueurSechoir:itemIndex.planterLongSechoir,picturePlanter:itemIndex.planterImage,section:itemIndex.planterSection,comission:itemIndex.planterCommission,remontage:itemIndex.planterRemontage});
 //                   require("./informationsAboutLeafAndWeight.js")(navigationView,true,itemIndex.remontage);
         
