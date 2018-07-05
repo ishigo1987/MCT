@@ -47,6 +47,9 @@ module.exports = (navigationView,isKnowPlanter,remontageNumber)=>{
                  require('./displayBilanAllOperations.js')(navigationView);
                }
             });  
+      }else{
+          localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
+          require('./displayBilanAllOperations.js')(navigationView);
       }
   }  
 }).appendTo(scrollView);
