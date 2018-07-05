@@ -8,7 +8,7 @@ module.exports = (navigationView)=>{
     const unknowPlanterPage = new Page({title:"Planteur inconnu",background:`#fafafa`}).on("disappear", function(){this.dispose();}).appendTo(navigationView);
     const scrollView = new ScrollView({left:0,right:0,top:0,bottom:0,background:'#fafafafa'}).appendTo(unknowPlanterPage); 
     
-    const picturePlanter = new ImageView({top:20,centerX:0,width:160,height:160,cornerRadius:80,image:{src:'src/img/unknow.png',scaleMode:'stretch',id:'picturePlanter'}}).appendTo(scrollView);
+    const picturePlanter = new ImageView({top:20,centerX:0,width:160,height:160,cornerRadius:80,image:{src:'src/img/no-pic.png',scaleMode:'stretch',id:'picturePlanter'}}).appendTo(scrollView);
     
     const buttonPicture = new ImageView({centerX:0,top:145,width:55,height:55,elevation:3,highlightOnTouch:true,scaleMode:'stretch',image:{src:'src/icons/cameraMct.png'}})
     .on('tap',()=>{

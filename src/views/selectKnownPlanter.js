@@ -8,13 +8,15 @@ module.exports = (navigationView)=>{
     const retrievePlantersDetails = require('../modules/retrievePlantersDetailsToDb.js')();
           retrievePlantersDetails.then((response)=>{
               if(response.Message === "Data retrieves with success");
-              const requestResult = response.RequestResult;
+                   const requestResult = response.RequestResult;
                    const j = requestResult.length;
                    let collectionViewArrayItems = [];
                    let remontage;
+              console.log(j);
                    for(let i=0; i<j; i++){
                        remontage = JSON.parse(requestResult.item(i).groupeplanteur);
                        remontage = remontage.remont;
+                       console.log(remontage)
                        collectionViewArrayItems.push({planterId:requestResult.item(i).id,planterName:requestResult.item(i).name,planterTelephone:requestResult.item(i).telephone,planterSection:requestResult.item(i).section,planterCommission:requestResult.item(i).commission,planterMatricule:requestResult.item(i).matricule,planterLongSechoir:requestResult.item(i).long_sechoir,planterImage:requestResult.item(i).image,planterRemontage:remontage,planterKnow:requestResult.item(i).know});  
                    }
                   console.log(collectionViewArrayItems);
