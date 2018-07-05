@@ -19,7 +19,7 @@ module.exports = (navigationView)=>{
 //                       remontage = remontage.remont;
 //                       console.log(remontage)
 //                       collectionViewArrayItems.push({planterId:requestResult.item(i).id,planterName:requestResult.item(i).name,planterTelephone:requestResult.item(i).telephone,planterSection:requestResult.item(i).section,planterCommission:requestResult.item(i).commission,planterMatricule:requestResult.item(i).matricule,planterLongSechoir:requestResult.item(i).long_sechoir,planterImage:requestResult.item(i).image,planterRemontage:remontage,planterKnow:requestResult.item(i).know});  
-//                   }
+                   }
 //                  console.log(collectionViewArrayItems);
                   const planterCollectionView = new CollectionView({right:0,bottom:0,top:0,left:0,itemCount:collectionViewArrayItems.length,cellHeight:80,
                     createCell: () => {
@@ -45,8 +45,8 @@ module.exports = (navigationView)=>{
                     require('./displayFullInformationsAboutKnowPlanter.js')(navigationView,{matricule:itemIndex.planterMatricule,name:itemIndex.planterName,zone:userInfos.zoneName,longueurSechoir:itemIndex.planterLongSechoir,picturePlanter:itemIndex.planterImage,section:itemIndex.planterSection,comission:itemIndex.planterCommission,remontage:itemIndex.planterRemontage});
 //        require("./informationsAboutLeafAndWeight.js")(navigationView,true,itemIndex.remontage);
         
-     }).appendTo(scrollView);
-        })
+                 }).appendTo(scrollView);
+        });
 //    let planterInformations = JSON.parse(localStorage.getItem('dataServer'));
 //        planterInformations = planterInformations.planteurs;
 ////        console.log(planterInformations);
