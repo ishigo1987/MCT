@@ -10,6 +10,8 @@ exports.create = ()=>{
              if(response.Message === "Data retrieves with success"){
                    const requestResult = response.RequestResult;
                    const j = requestResult.length;
+                 console.log(requestResult);
+                 console.log(j);
                    let campagnesArray = [];
                    for(let i=0; i<j; i++){
                      campagnesArray.push({campaignId:requestResult.item(i).id,campaignName:requestResult.item(i).name,campaignPassword:requestResult.item(i).password_plan,campaignPriceFirstLeaf:RequestResult.item(i).prix_feuille1,campaignPriceSecondLeaf:requestResult.item(i).prix_feuille2,campaignPriceThirdLeaf:requestResult.item(i).prix_feuille3,campaignPriceXLeaf:requestResult.item(i).prix_feuille_x,campaignPriceCutLeaf:requestResult.item(i).prix_coupe,campaignTauxRefraction:requestResult.item(i).taux_refraction,campaignPriceTriage:requestResult.item(i).prix_triage});   
