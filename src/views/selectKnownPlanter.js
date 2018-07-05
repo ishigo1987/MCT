@@ -37,11 +37,10 @@ module.exports = (navigationView)=>{
                       view.find("#planterLongSechoir").set("text", `Long sechoir: ${page.planterLongSechoir}`);
                     }
                   }).on("select", ({index}) => {
-                   const itemIndex = collectionViewArrayItems[index];
-                   userInfos.selectedKnownPlanterId = itemIndex.planterId;
-                   userInfos.selectedKnownPlanterLongeurSechoir = itemIndex.planterLongSechoir;
-                   localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
-                      console.log(typeof({t:itemIndex.planterRemontage}));
+                    const itemIndex = collectionViewArrayItems[index];
+                    userInfos.selectedKnownPlanterId = itemIndex.planterId;
+                    userInfos.selectedKnownPlanterLongeurSechoir = itemIndex.planterLongSechoir;
+                    localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
                     require('./displayFullInformationsAboutKnowPlanter.js')(navigationView,{matricule:itemIndex.planterMatricule,name:itemIndex.planterName,zone:userInfos.zoneName,longueurSechoir:itemIndex.planterLongSechoir,picturePlanter:itemIndex.planterImage,section:itemIndex.planterSection,comission:itemIndex.planterCommission,remontage:itemIndex.planterRemontage});
 //                   require("./informationsAboutLeafAndWeight.js")(navigationView,true,itemIndex.remontage);
         
