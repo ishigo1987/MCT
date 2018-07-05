@@ -41,7 +41,7 @@ module.exports = (navigationView)=>{
                             userInfos.planterNumber = planterNumber.text;
                             userInfos.pictureSrc = pictureSrc;
                       localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
-                      require("./informationsAboutLeafAndWeight.js")(navigationView,false);
+                      require("./home.js")(navigationView,false);
                     }
                 });
           // On lance la sauvegarde des infos et switch sur une autre vue
