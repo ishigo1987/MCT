@@ -24,9 +24,10 @@ module.exports = (navigationViewToInsert,remontageNumber)=>{
    
    function displayMontantAchat(){
      const remontageLevel = arrayOfLevelRemontage[pickerPercentRemontage.selectionIndex].levelRemontage;
+       console.log(remontageLevel);
      const userInfos = JSON.parse(localStorage.getItem('storeMctUserInfos'));
            userInfos.remontageLevel = remontageLevel;
-     localStorage.setItem('storeMctUserInfos',userInfos);
+     localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
      const montantAchat = require('../modules/calculMontantAchat.js')(true,remontageLevel);
      montantAchatValue.text = `${montantAchat} FCFA`;
    }

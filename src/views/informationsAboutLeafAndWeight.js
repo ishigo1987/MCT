@@ -38,9 +38,7 @@ module.exports = (navigationView,isKnowPlanter,remontageNumber)=>{
             remontage.then((response)=>{
                if(response === "button ok"){
                  userInfos.withRemontage = true;
-                   console.log(localStorage.getItem('storeMctUserInfos'));
                  localStorage.setItem('storeMctUserInfos',JSON.stringify(userInfos));
-                   console.log(localStorage.getItem('storeMctUserInfos'));
                  require("./remontageChoice.js")(navigationView,remontageNumber);               
                }else{
                  // Affichage du récapitulatif sans remontage
