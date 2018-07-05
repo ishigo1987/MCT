@@ -7,7 +7,8 @@ exports.create = ()=>{
    const homePage = new Page({title:`MCT`,background: `#eeeeee`}).appendTo(executeNavigationView);
    const retriveDataCampaign = require('../modules/retrieveDataCampaignToDatabase.js')();
          retriveDataCampaign.then((response)=>{
-             console.log(response.requestResult);
+             console.log(response.requestResult(30));
+             console.log(response.rowLength);
              if(response.Message === "Data retrieves with success"){
                  const scrollView = new ScrollView({top:0,right:0,left:0,bottom:0}).appendTo(homePage);
                  const selectCampaignText = new TextView({top:60,left:15,right:15,text:"Selectionnez la campagne",textColor:'#616161',font:"22px roboto"}).appendTo(scrollView);
