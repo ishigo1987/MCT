@@ -23,7 +23,7 @@ exports.create = () =>{
      if(login.text === '' || password.text === ''){
        messageInfo('Connexion','Le couple login mot de passe que avez entré est incorrect.','Ok compris','Annuler');
      }else{
-       pDialog("Vérification de vos données de connexion et synchronisation de la base de donnée",false,true);
+       pDialog("Vérification de vos données de connexion et synchronisation de la base de donnée.",false,true);
        const ajax = require('../helpers/ajax.js')(null,`http://www.adscameroon.com/web/app_dev.php/android/login/${login.text}/${password.text}`);
              ajax.then((response)=>{
               if(response.statut === 1){
