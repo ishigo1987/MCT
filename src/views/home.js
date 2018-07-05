@@ -14,6 +14,7 @@ exports.create = ()=>{
                    for(let i=0; i<j; i++){
                      campagnesArray.push({campaignId:requestResult.item(i).id,campaignName:requestResult.item(i).name,campaignPassword:requestResult.item(i).password_plan,campaignPriceFirstLeaf:RequestResult.item(i).prix_feuille1,campaignPriceSecondLeaf:requestResult.item(i).prix_feuille2,campaignPriceThirdLeaf:requestResult.item(i).prix_feuille3,campaignPriceXLeaf:requestResult.item(i).prix_feuille_x,campaignPriceCutLeaf:requestResult.item(i).prix_coupe,campaignTauxRefraction:requestResult.item(i).taux_refraction,campaignPriceTriage:requestResult.item(i).prix_triage});   
                    }
+                   console.log(campagnesArray);
                    const scrollView = new ScrollView({top:0,right:0,left:0,bottom:0}).appendTo(homePage);
                    const selectCampaignText = new TextView({top:60,left:15,right:15,text:"Selectionnez la campagne",textColor:'#616161',font:"22px roboto"}).appendTo(scrollView);
 //                   let dataCampaign = JSON.parse(localStorage.getItem('dataServer'));
