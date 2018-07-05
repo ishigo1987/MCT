@@ -23,7 +23,7 @@ exports.create = () =>{
      if(login.text === '' || password.text === ''){
        messageInfo('Connexion','Le couple login mot de passe que avez entré est incorrect.','Ok compris','Annuler');
      }else{
-//       pDialog("Vérification de vos données de connexion et synchronisation de la base de donnée",false,true);
+       pDialog("Vérification de vos données de connexion et synchronisation de la base de donnée",false,true);
        const ajax = require('../helpers/ajax.js')(null,`http://www.adscameroon.com/web/app_dev.php/android/login/${login.text}/${password.text}`);
              ajax.then((response)=>{
               if(response.statut === 1){
@@ -36,26 +36,22 @@ exports.create = () =>{
                               const planterInfos = response.planteurs;
                               const campaignInfos = response.campagnes;
                               const areaInfos = response.zones;
-                                console.log(`${JSON.stringify(planterInfos[0])} ${JSON.stringify(campaignInfos[0])} ${JSON.stringify(areaInfos[0])}`);
-                               console.log(`${JSON.stringify(planterInfos[0].groupeplanteur)}`);
                               const infosPlantersTable = planterInfos.map((infos)=>{
-                                 return {id:infos.id,name:infos.name,telephone:infos.phone,section:infos.section,commission:infos.commission,matricule:infos.mat,longSechoir:infos.long_sechoir,image:`http://www.adscameroon.com//web/uploads/media/default/0001/01/${infos.image.provider_reference}`,groupeplanteur:infos.groupeplanteur,know:infos.know};
+                                 return {id:infos.id,name:infos.name,telephone:infos.phone,section:infos.section,commission:infos.commission,matricule:infos.mat,longSechoir:infos.long_sechoir,image:`src/img/no-pic.png`,groupeplanteur:infos.groupeplanteur,know:infos.know};
                               });
-                               console.log(infosPlantersTable);
                               const infosCampaignTable = campaignInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name,passwordPlan:infos.pass_plan,prixFeuille1:infos.p_feuil1,prixFeuille2:infos.p_feuil2,prixFeuille3:infos.p_feuil3,prixFeuilleX:infos.p_feuil_x,prixCoupe:infos.p_coupe,tauxRefraction:infos.refrac,prixTriage:infos.p_triage};
                               });
                               const infosAreaTable = areaInfos.map((infos)=>{
                                  return {id:infos.id,name:infos.name}; 
                               });
-                               console.log(infosAreaTable);
                               const populateDataBase = require('../modules/firstPopulateDataBase.js')(infosPlantersTable,infosCampaignTable,infosAreaTable);
                                     populateDataBase.then((responsePopulate)=>{
                                         if(responsePopulate === "All insertions are a success"){
                                           localStorage.setItem('storeMctUserInfos',JSON.stringify({login:login.text}));
-//                                           pDialog("",false,false);
+                                           pDialog("",false,false);
                                            executeNavigationView.dispose();
-//                                           require("./home.js").create();
+                                           require("./home.js").create();
                                         }else{
                                            console.log(responsePopulate);  
                                         } 
